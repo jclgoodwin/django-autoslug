@@ -71,7 +71,7 @@ def generate_unique_slug(field, instance, slug, manager):
         if instance.pk:
             rivals = rivals.exclude(pk=instance.pk)
 
-        if not rivals:
+        if not rivals.exists():
             # the slug is unique, no model uses it
             return slug
 
